@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "511581167904",
+    "project_id": "books-kk-history",
+    "storage_bucket": "books-kk-history.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511581167904:android:f5c1eec2cff7a832d1b745",
+        "android_client_info": {
+          "package_name": "com.example.books"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511581167904-cfsmc778plc2hq57c3hkcp8ip97khlje.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdy9SoS3qjkysaHGVm5jBQ6iKOcKeDST8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511581167904-cfsmc778plc2hq57c3hkcp8ip97khlje.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

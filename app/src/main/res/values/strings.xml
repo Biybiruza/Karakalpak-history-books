@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Books</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Tariyxińdı sóyle elektron kitapxanası</string>
+    <string name="text">Tariyxińdı sóyle elektron kitapxanasına xosh kelipsiz</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password</string>
+    <string name="invalid_conf_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="new_user_signup">New User? <b>SignUp</b></string>
+    <string name="prompt_name">Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="action_sign_up">Register</string>
+</resources>
