@@ -52,6 +52,9 @@
             app:destination="@id/welcomeFragment"
             app:popUpTo="@+id/dashboardAdminFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_dashboardAdminFragment_to_categoryAddFragment"
+            app:destination="@id/categoryAddFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboardUserFragment"
@@ -97,4 +100,9 @@
             app:popUpTo="@+id/registerFragment"
             app:popUpToInclusive="true"/>
     </fragment>
+    <fragment
+        android:id="@+id/categoryAddFragment"
+        android:name="com.example.books.ui.category.CategoryAddFragment"
+        android:label="fragment_category_add"
+        tools:layout="@layout/fragment_category_add" />
 </navigation>

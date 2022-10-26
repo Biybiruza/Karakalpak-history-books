@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/ic_pdf_white.xml" value="0.1195" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/shape_button01.xml" value="0.18" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/shape_button02.xml" value="0.14" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/shape_toolbar01.xml" value="0.1685" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/shape_toolbar02.xml" value="0.1685" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/fragment_dashboard_admin.xml" value="0.67" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/fragment_category_add.xml" value="0.19689119170984457" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/fragment_dashboard_admin.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/fragment_dashboard_user.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/fragment_register.xml" value="0.2" />
