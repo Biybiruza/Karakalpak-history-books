@@ -28,6 +28,11 @@ class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
             firebaseAuth.signOut()
             checkUser()
         }
+
+        //handle click, start add category page
+        binding.addCategoryBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardAdminFragment_to_categoryAddFragment)
+        }
     }
 
     private fun checkUser() {
