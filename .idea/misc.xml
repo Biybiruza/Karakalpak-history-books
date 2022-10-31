@@ -6,6 +6,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/ic_pdf_white.xml" value="0.1195" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/shape_button01.xml" value="0.18" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/shape_button02.xml" value="0.14" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/shape_button03.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/shape_toolbar01.xml" value="0.1685" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/drawable/shape_toolbar02.xml" value="0.1685" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/fragment_register.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/fragment_splash.xml" value="0.1859375" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/fragment_welcome.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Books/app/src/main/res/layout/row_category.xml" value="0.33" />
       </map>
     </option>
   </component>
