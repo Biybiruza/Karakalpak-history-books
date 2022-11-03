@@ -7,6 +7,7 @@
     android:background="@drawable/back01"
     tools:context=".ui.category.CategoryAddFragment">
 
+    <!--Toolbar-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
