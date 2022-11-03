@@ -3,23 +3,19 @@ package com.example.books.ui.dashboard.admin
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.Display
 import android.view.View
-import android.widget.Adapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.books.R
 import com.example.books.data.ModelCategory
 import com.example.books.databinding.FragmentDashboardAdminBinding
 import com.example.books.ui.category.AdapterCategory
-import com.google.android.datatransport.cct.internal.NetworkConnectionInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.lang.Exception
-import java.util.*
 import kotlin.collections.ArrayList
 
 class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
@@ -74,6 +70,11 @@ class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
         //handle click, start add category page
         binding.addCategoryBtn.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardAdminFragment_to_categoryAddFragment)
+        }
+
+        //handle click, start add pdf page
+        binding.addPdfFab.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardAdminFragment_to_pdfAddFragment)
         }
     }
 

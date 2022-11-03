@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_dashboardAdminFragment_to_categoryAddFragment"
             app:destination="@id/categoryAddFragment" />
+        <action
+            android:id="@+id/action_dashboardAdminFragment_to_pdfAddFragment"
+            app:destination="@id/pdfAddFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboardUserFragment"
@@ -105,4 +108,9 @@
         android:name="com.example.books.ui.category.CategoryAddFragment"
         android:label="fragment_category_add"
         tools:layout="@layout/fragment_category_add" />
+    <fragment
+        android:id="@+id/pdfAddFragment"
+        android:name="com.example.books.ui.upload_pdf.PdfAddFragment"
+        android:label="fragment_pdf_add"
+        tools:layout="@layout/fragment_pdf_add" />
 </navigation>
