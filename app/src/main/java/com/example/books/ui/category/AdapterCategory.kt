@@ -10,6 +10,9 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.books.R
 import com.example.books.data.ModelCategory
@@ -36,11 +39,11 @@ class AdapterCategory(context: Context) : RecyclerView.Adapter<CategoryViewHolde
             //set data
             binding.categoryTv.text = model.category
 
-            //get data
+            /*//get data
             val id = model.id
             val category = model.category
             val uid = model.uid
-            val timestamp = model.timestamp
+            val timestamp = model.timestamp*/
 
             //hanlde click, delete category
             binding.btnDelete.setOnClickListener {
@@ -57,6 +60,13 @@ class AdapterCategory(context: Context) : RecyclerView.Adapter<CategoryViewHolde
                         a.dismiss()
                     }
                     .show()
+            }
+
+            //handle click, start pdf listen admin activity, also pas pdf id, title
+            itemView.setOnClickListener {
+                onClickItem.invoke(model.id,model.category)
+                /*val bundle = bundleOf("categoryId" to id, "category" to category)
+                navController.navigate(R.id.action_dashboardAdminFragment_to_pdfListAdminFragment, bundle)*/
             }
         }
     }
@@ -81,9 +91,8 @@ class AdapterCategory(context: Context) : RecyclerView.Adapter<CategoryViewHolde
             notifyDataSetChanged()
         }
 
-    var onClickItem: (model: ModelCategory) -> Unit = {}
-
-    fun setOnClickItemListener(onClick: (models: ModelCategory) -> Unit) {
+    private var onClickItem: (categoryId: String, category:String) -> Unit = {categoryId, category ->  }
+    fun setOnClickItemListener(onClick: (categoryId: String, category:String) -> Unit) {
         this.onClickItem = onClick
     }
 

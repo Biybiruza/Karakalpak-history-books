@@ -43,6 +43,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
+        //back button click
+        binding.btnBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+
         // handle click, begin login
         binding.btnLogin.setOnClickListener {
             /*Steps

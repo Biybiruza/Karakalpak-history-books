@@ -25,11 +25,11 @@ class FilterCategory: Filter {
             //searched value is nor null not empty
 
             //change to upper case, or lower case to avoid case sensitivity
-            constraint = constraint.toString().uppercase()
+            constraint = constraint.toString().lowercase()
             val filterModels: ArrayList<ModelCategory> = arrayListOf()
             for (i in 0 until filterList.size){
                 //validate
-                if (filterList[i].category.uppercase().contains(constraint)){
+                if (filterList[i].category.lowercase().contains(constraint)){
                     //add to filtered list
                     filterModels.add(filterList[i])
                 }
@@ -47,7 +47,5 @@ class FilterCategory: Filter {
     override fun publishResults(constraint: CharSequence?, results: FilterResults) {
         // apply filter changes
         adapterCategory.categoryList = results.values as ArrayList<ModelCategory>
-
-        //noti
     }
 }
