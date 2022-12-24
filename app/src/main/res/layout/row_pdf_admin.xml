@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    app:contentPadding="5dp"
+    app:cardCornerRadius="5dp"
+    android:layout_marginBottom="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_pdf"
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            android:background="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--Pdf viewer-->
+            <com.github.barteksc.pdfviewer.PDFView
+                android:id="@+id/pdfViewer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <!--ProgressBar-->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+
+        <!--Title-->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:maxLines="1"
+            android:text="The Book Title"
+            android:ellipsize="end"
+            android:layout_marginStart="5dp"
+            app:layout_constraintEnd_toStartOf="@id/ib_moreBtn"
+            app:layout_constraintStart_toEndOf="@id/rl_pdf"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--Description-->
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:maxLines="4"
+            android:text="The description of the book"
+            android:ellipsize="end"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_date"
+            app:layout_constraintEnd_toStartOf="@id/ib_moreBtn"
+            app:layout_constraintStart_toEndOf="@id/rl_pdf"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"/>
+
+        <!--Category-->
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:maxLines="1"
+            android:text="Category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!--Size-->
+        <TextView
+            android:id="@+id/tv_pdfSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:maxLines="1"
+            android:text="Category"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@id/rl_pdf"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!--Date-->
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:maxLines="1"
+            android:text="dd/MM/yyyy"
+            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@id/tv_category"
+            app:layout_constraintStart_toEndOf="@id/tv_pdfSize"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!--Show more options-->
+        <ImageButton
+            android:id="@+id/ib_moreBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_more_black"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

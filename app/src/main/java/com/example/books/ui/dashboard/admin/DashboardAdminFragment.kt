@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.books.R
@@ -18,6 +20,7 @@ import com.google.firebase.database.ValueEventListener
 import java.lang.Exception
 import kotlin.collections.ArrayList
 
+@Suppress("UNREACHABLE_CODE")
 class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
     //view binding
     private lateinit var binding: FragmentDashboardAdminBinding
@@ -33,6 +36,7 @@ class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDashboardAdminBinding.bind(view)
+        categoryAdapter = AdapterCategory(requireContext())
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
@@ -43,6 +47,7 @@ class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
         binding.searchEt.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "Not yet implemented",Toast.LENGTH_LONG).show()
             }
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -76,6 +81,12 @@ class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
         binding.addPdfFab.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardAdminFragment_to_pdfAddFragment)
         }
+
+        //item click, start books list
+        categoryAdapter.setOnClickItemListener { categoryId, category ->
+            val bundle = bundleOf("categoryId" to categoryId, "category" to category)
+            findNavController().navigate(R.id.action_dashboardAdminFragment_to_pdfListAdminFragment, bundle)
+        }
     }
 
     private fun loadCategories() {
@@ -95,8 +106,6 @@ class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
                     //add to arraylist
                     categoryArrayList.add(model!!)
                 }
-                //setup adapter
-                categoryAdapter = AdapterCategory(requireContext())
                 categoryAdapter.categoryList = categoryArrayList
                 //set adapter to recyclerView
                 binding.categoriesRv.adapter = categoryAdapter

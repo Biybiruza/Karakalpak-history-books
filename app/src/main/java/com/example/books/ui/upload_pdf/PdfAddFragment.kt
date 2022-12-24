@@ -59,9 +59,9 @@ class PdfAddFragment : Fragment(R.layout.fragment_pdf_add){
         progressDialog.setCanceledOnTouchOutside(false)
 
         //handle click. goBack
-//        binding.btnBack.setOnClickListener {
-//            activity?.onBackPressed()
-//        }
+        binding.btnBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
 
         //handle click, show category pick dialog
         binding.categoryTv.setOnClickListener {
