@@ -33,9 +33,7 @@
         tools:layout="@layout/fragment_welcome" >
         <action
             android:id="@+id/action_welcomeFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:popUpTo="@+id/welcomeFragment"
-            app:popUpToInclusive="true"/>
+            app:destination="@id/loginFragment"/>
         <action
             android:id="@+id/action_welcomeFragment_to_dashboardUserFragment"
             app:destination="@id/dashboardUserFragment"
@@ -120,5 +118,13 @@
         android:id="@+id/pdfListAdminFragment"
         android:name="com.example.books.ui.dashboard.admin.pdf_list.PdfListAdminFragment"
         android:label="PdfListAdminFragment"
-        tools:layout="@layout/fragment_pdf_list_admin"/>
+        tools:layout="@layout/fragment_pdf_list_admin">
+        <action
+            android:id="@+id/action_pdfListAdminFragment_to_pdfEditFragment"
+            app:destination="@id/pdfEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pdfEditFragment"
+        android:name="com.example.books.ui.dashboard.admin.pdf_list.alert_dialog.PdfEditFragment"
+        android:label="PdfEditFragment" />
 </navigation>

@@ -12,10 +12,11 @@ import com.example.books.data.ModelPdf
 import com.example.books.databinding.RowPdfAdminBinding
 import com.example.books.ui.dashboard.admin.MyApplication
 
-class AdapterPdfAdmin(/*val context: Context*/) : RecyclerView.Adapter<AdapterPdfAdmin.PdfAdminViewHolder>(),Filterable {
+class AdapterPdfAdmin(context: Context) : RecyclerView.Adapter<AdapterPdfAdmin.PdfAdminViewHolder>(),Filterable {
 
     private var filterList: ArrayList<ModelPdf> = arrayListOf()
     private var filter: FilterPdfAdmin? = null
+    val context = context
 
     inner class PdfAdminViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val binding = RowPdfAdminBinding.bind(itemView)
@@ -36,8 +37,17 @@ class AdapterPdfAdmin(/*val context: Context*/) : RecyclerView.Adapter<AdapterPd
             //load pdf Size
             MyApplication.loadPdfSize(model.url, model.title, binding.tvPdfSize)
 
+            //item click, show dialog with options 10) Edit book 2)Delete book
+            binding.ibMoreBtn.setOnClickListener {
+                onClickItem.invoke(model)
+            }
             //lets create an application class that will contain the functions that will be used multiple places in app
         }
+    }
+
+    private var onClickItem: (model: ModelPdf) -> Unit = { }
+    fun setOnClickItemListener(onClick: (model: ModelPdf) -> Unit) {
+        this.onClickItem = onClick
     }
 
     var pdfList = arrayListOf<ModelPdf>()

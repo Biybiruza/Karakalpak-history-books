@@ -1,14 +1,19 @@
 package com.example.books.ui.dashboard.admin.pdf_list
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.books.MainActivity
 import com.example.books.R
 import com.example.books.data.ModelPdf
 import com.example.books.databinding.FragmentPdfListAdminBinding
+import com.example.books.ui.dashboard.admin.MyApplication
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -32,10 +37,11 @@ class PdfListAdminFragment: Fragment(R.layout.fragment_pdf_list_admin){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPdfListAdminBinding.bind(view)
-        adapterPdfAdmin = AdapterPdfAdmin()
+        adapterPdfAdmin = AdapterPdfAdmin(requireContext())
 
         //get from intent, that we passed from adapter
         categoryId = arguments?.getString("categoryId") ?: ""
+        Log.d(TAG, "categoryId: $categoryId")
         category = arguments?.getString("category") ?: ""
 
         //set pdf category
@@ -66,9 +72,37 @@ class PdfListAdminFragment: Fragment(R.layout.fragment_pdf_list_admin){
         })
 
         //back pressed
-        binding.btnBack.setOnClickListener {
-//            requireActivity().onBackPressed()
+        binding.toolbar.setNavigationOnClickListener {
+            (activity as MainActivity?)?.onBackPressed()
         }
+
+        adapterPdfAdmin.setOnClickItemListener {
+            Log.d(TAG,"moreOptionsDialog: $it")
+            moreOptionsDialog(it)
+        }
+
+    }
+
+    private fun moreOptionsDialog(model: ModelPdf) {
+        //options to show in dialog
+        val options = arrayOf("Edit","Delete")
+        //alert dialog
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Choose Option")
+            .setItems(options){ _, position->
+                //item click
+                if (position == 0){
+                    //Edit is clicked
+                    val bundle = bundleOf("bookId" to model.id)
+                    findNavController().navigate(R.id.action_pdfListAdminFragment_to_pdfEditFragment,bundle)
+                } else if (position == 1){
+                    //delete is clicked
+
+                    //show confirmation dialog first if you need...
+                    MyApplication.deleteBook(requireContext(), model.id,model.url, model.title)
+                }
+            }
+            .show()
     }
 
     private fun loadPdfList() {
@@ -82,8 +116,8 @@ class PdfListAdminFragment: Fragment(R.layout.fragment_pdf_list_admin){
                     for (ds in snapshot.children){
                         //get data
                         val model = ds.getValue(ModelPdf::class.java)
+                        Log.d(TAG, "onDataChange ${model}")
                         //add to list
-
                         pdfArrayList.add(model!!)
                         Log.d(TAG, "onDataChange ${model.title} ${model.categoryId}")
                     }
