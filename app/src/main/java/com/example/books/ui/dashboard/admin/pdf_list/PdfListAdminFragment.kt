@@ -76,9 +76,15 @@ class PdfListAdminFragment: Fragment(R.layout.fragment_pdf_list_admin){
             (activity as MainActivity?)?.onBackPressed()
         }
 
-        adapterPdfAdmin.setOnClickItemListener {
+        adapterPdfAdmin.setOnClickMoteBtnListener {
             Log.d(TAG,"moreOptionsDialog: $it")
             moreOptionsDialog(it)
+        }
+
+        //item click, open PdfDetailsFragment activity, lets create it first
+        adapterPdfAdmin.setOnClickItemListener {
+            val bundle = bundleOf("bookId" to it)
+            findNavController().navigate(R.id.action_pdfListAdminFragment_to_pdfDetailsFragment, bundle)
         }
 
     }

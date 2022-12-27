@@ -39,14 +39,24 @@ class AdapterPdfAdmin(context: Context) : RecyclerView.Adapter<AdapterPdfAdmin.P
 
             //item click, show dialog with options 10) Edit book 2)Delete book
             binding.ibMoreBtn.setOnClickListener {
-                onClickItem.invoke(model)
+                onClickMoreBtn.invoke(model)
             }
             //lets create an application class that will contain the functions that will be used multiple places in app
+
+            //handle item click, open PdfDetailsFragment activity, lets create it first
+            itemView.setOnClickListener {
+                onClickItem.invoke(model.id)
+            }
         }
     }
 
-    private var onClickItem: (model: ModelPdf) -> Unit = { }
-    fun setOnClickItemListener(onClick: (model: ModelPdf) -> Unit) {
+    private var onClickMoreBtn: (model: ModelPdf) -> Unit = { }
+    fun setOnClickMoteBtnListener(onClick: (model: ModelPdf) -> Unit) {
+        this.onClickMoreBtn = onClick
+    }
+
+    private var onClickItem: (bookId: String) -> Unit = { }
+    fun setOnClickItemListener(onClick: (bookId: String) -> Unit) {
         this.onClickItem = onClick
     }
 
