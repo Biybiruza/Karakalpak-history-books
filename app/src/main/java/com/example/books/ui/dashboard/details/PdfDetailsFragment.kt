@@ -2,7 +2,9 @@ package com.example.books.ui.dashboard.details
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.books.MainActivity
 import com.example.books.R
 import com.example.books.databinding.FragmentPdfDetailsBinding
@@ -34,6 +36,12 @@ class PdfDetailsFragment : Fragment(R.layout.fragment_pdf_details) {
         //handle back button click, go back
         binding.btnBack.setOnClickListener {
             (activity as MainActivity?)?.onBackPressed()
+        }
+
+        //handle click, open pdf view activity
+        binding.readBtn.setOnClickListener {
+            val bundle = bundleOf("bookId" to bookId)
+            findNavController().navigate(R.id.action_pdfDetailsFragment_to_pdfViewFragment, bundle)
         }
     }
 

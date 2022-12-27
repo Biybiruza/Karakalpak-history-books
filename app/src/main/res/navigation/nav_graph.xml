@@ -129,10 +129,20 @@
     <fragment
         android:id="@+id/pdfEditFragment"
         android:name="com.example.books.ui.dashboard.admin.pdf_list.alert_dialog.PdfEditFragment"
-        android:label="PdfEditFragment" />
+        android:label="PdfEditFragment"
+        tools:layout="@layout/fragment_pdf_edit"/>
     <fragment
         android:id="@+id/pdfDetailsFragment"
         android:name="com.example.books.ui.dashboard.details.PdfDetailsFragment"
         android:label="PdfDetailsFragment"
-        tools:layout="@layout/fragment_pdf_details"/>
+        tools:layout="@layout/fragment_pdf_details">
+        <action
+            android:id="@+id/action_pdfDetailsFragment_to_pdfViewFragment"
+            app:destination="@id/pdfViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pdfViewFragment"
+        android:name="com.example.books.ui.dashboard.pdf_iew.PdfViewFragment"
+        android:label="PdfViewFragment"
+        tools:layout="@layout/fragment_pdf_view"/>
 </navigation>
