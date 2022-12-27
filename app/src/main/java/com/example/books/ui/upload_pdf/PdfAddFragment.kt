@@ -154,7 +154,7 @@ class PdfAddFragment : Fragment(R.layout.fragment_pdf_add){
 
         var hashMap: HashMap<String, Any?> = hashMapOf()
         hashMap["uid"] = uid
-        hashMap["id"] = timestamp
+        hashMap["id"] = "$timestamp"
         hashMap["title"] = title
         hashMap["description"] = description
         hashMap["categoryId"] = selectedCategoryId
