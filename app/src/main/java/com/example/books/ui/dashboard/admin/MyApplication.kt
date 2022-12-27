@@ -9,16 +9,15 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.net.toUri
 import com.example.books.ui.dashboard.admin.pdf_list.Constant
 import com.github.barteksc.pdfviewer.PDFView
-import com.google.firebase.auth.ktx.oAuthCredential
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
+import kotlin.collections.HashMap
 
 class MyApplication: Application() {
 
@@ -177,6 +176,37 @@ class MyApplication: Application() {
                     Log.d(TAG, "deleteBook: Deleted to from storage due to ${e.message}")
                     Toast.makeText(context, "Failed to delete due to ${e.message}", Toast.LENGTH_LONG).show()
                 }
+        }
+
+        fun incrementBookViewCount(bookId: String){
+            //1) get current book views count
+            val ref = FirebaseDatabase.getInstance().getReference("Books")
+            ref.child(bookId)
+                .addListenerForSingleValueEvent(object : ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        var viewsCount = snapshot.child("viewsCount").value.toString()
+
+                        if (viewsCount == "0" || viewsCount == "null"){
+                            viewsCount = "0"
+                        }
+                        //2) Increment views count
+                        val newViewsCount = viewsCount.toLong() + 1
+
+                        //setup data to update in db
+                        var hashMap = HashMap<String, Any>()
+                        hashMap["viewsCount"] = newViewsCount
+
+                        //set to db
+                        val dbRef = FirebaseDatabase.getInstance().getReference("Books")
+                        dbRef.child(bookId)
+                            .updateChildren(hashMap)
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+
+                })
         }
     }
 }
