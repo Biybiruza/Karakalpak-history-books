@@ -222,14 +222,25 @@
 
     </ScrollView>
 
+    <!--read book-->
     <Button
         android:id="@+id/readBtn"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Read"
         android:drawableTop="@drawable/ic_read_book_white"
-        android:background="@drawable/shape_button01"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/downloadBtn"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!--download book-->
+    <Button
+        android:id="@+id/downloadBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Download"
+        android:drawableTop="@drawable/ic_download_white"
+        app:layout_constraintStart_toEndOf="@id/readBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
