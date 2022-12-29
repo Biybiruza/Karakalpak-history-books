@@ -70,6 +70,12 @@
             app:destination="@id/welcomeFragment"
             app:popUpTo="@+id/dashboardUserFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_dashboardUserFragment_to_booksUserFragment"
+            app:destination="@id/booksUserFragment" />
+        <action
+            android:id="@+id/action_dashboardUserFragment_to_pdfDetailsFragment"
+            app:destination="@id/pdfDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -145,4 +151,9 @@
         android:name="com.example.books.ui.dashboard.pdf_iew.PdfViewFragment"
         android:label="PdfViewFragment"
         tools:layout="@layout/fragment_pdf_view"/>
+    <fragment
+        android:id="@+id/booksUserFragment"
+        android:name="com.example.books.ui.dashboard.user.viewpager.BooksUserFragment"
+        android:label="fragment_books_user"
+        tools:layout="@layout/fragment_books_user" />
 </navigation>
