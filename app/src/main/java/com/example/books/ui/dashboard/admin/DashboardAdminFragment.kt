@@ -87,6 +87,12 @@ class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
             val bundle = bundleOf("categoryId" to categoryId, "category" to category)
             findNavController().navigate(R.id.action_dashboardAdminFragment_to_pdfListAdminFragment, bundle)
         }
+
+        //handle click, open Profile activity
+        binding.btnProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardAdminFragment_to_profileFragment)
+        }
+
     }
 
     private fun loadCategories() {
