@@ -59,6 +59,9 @@
         <action
             android:id="@+id/action_dashboardAdminFragment_to_pdfListAdminFragment"
             app:destination="@id/pdfListAdminFragment" />
+        <action
+            android:id="@+id/action_dashboardAdminFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboardUserFragment"
@@ -76,6 +79,9 @@
         <action
             android:id="@+id/action_dashboardUserFragment_to_pdfDetailsFragment"
             app:destination="@id/pdfDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardUserFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -156,4 +162,18 @@
         android:name="com.example.books.ui.dashboard.user.viewpager.BooksUserFragment"
         android:label="fragment_books_user"
         tools:layout="@layout/fragment_books_user" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.books.ui.dashboard.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_profileEditFragment"
+            app:destination="@id/profileEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileEditFragment"
+        android:name="com.example.books.ui.dashboard.profile.ProfileEditFragment"
+        android:label="ProfileEditFragment"
+        tools:layout="@layout/fragment_profile_edit"/>
 </navigation>

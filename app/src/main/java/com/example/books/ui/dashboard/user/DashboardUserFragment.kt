@@ -48,11 +48,10 @@ class DashboardUserFragment : Fragment(R.layout.fragment_dashboard_user) {
             findNavController().navigate(R.id.action_dashboardUserFragment_to_welcomeFragment)
         }
 
-        //item view click
-        /*adapter.setOnClickItemListener {
-            val bundle = bundleOf("bookId" to it)
-            findNavController().navigate(R.id.action_dashboardUserFragment_to_pdfDetailsFragment, bundle)
-        }*/
+        //handle click, open Profile activity
+        binding.btnProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardUserFragment_to_profileFragment)
+        }
     }
 
     private fun setupWithViewPagerAdapter(viewPager: ViewPager){
@@ -146,16 +145,25 @@ class DashboardUserFragment : Fragment(R.layout.fragment_dashboard_user) {
 
     }
 
+    //this activity can be opened with or without login, so hide logout and profile button when user not logged in
     private fun checkUser() {
         //get current user
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser == null){
             //not logged in, user can stay in user dashboard without login too
             binding.userTv.text = "Not Logged In"
+
+            //hide profile, logout
+            binding.btnProfile.visibility = View.GONE
+            binding.logout.visibility = View.GONE
         } else {
             //logged in, get and show user info
             val email = firebaseUser.email
             binding.userTv.text = email
+
+            //show profile, logout
+            binding.btnProfile.visibility = View.VISIBLE
+            binding.logout.visibility = View.VISIBLE
 
         }
     }
