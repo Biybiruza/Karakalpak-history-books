@@ -105,7 +105,7 @@ class PdfDetailsFragment : Fragment(R.layout.fragment_pdf_details) {
                 //user is logged in, we can do favorite functionality
                 if (isInMyFavorite){
                     //already in favorite, remove
-                    removeFromFavorite()
+                    MyApplication.removeFromFavorite(requireContext(), bookId)
                 } else {
                     //not in favorite, add
                     addToFavorite()
@@ -297,22 +297,6 @@ class PdfDetailsFragment : Fragment(R.layout.fragment_pdf_details) {
             .addOnFailureListener { e ->
                 //failed to add to favorite
                 Log.d(TAG, "addToFavorite: Failed to add to favorite due to ${e.message}")
-                Toast.makeText(requireContext(), "Failed to add to favorite due to ${e.message}", Toast.LENGTH_LONG).show()
-            }
-    }
-
-    private fun removeFromFavorite(){
-        Log.d(TAG, "removeFromFavorite: removing from favorite")
-
-        //database ref
-        val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
-            .removeValue()
-            .addOnSuccessListener {
-                Log.d(TAG, "removeFromFavorite: removed from favorite")
-            }
-            .addOnFailureListener { e ->
-                Log.d(TAG, "removeFromFavorite: Failed to remove from favorite due to ${e.message}")
                 Toast.makeText(requireContext(), "Failed to add to favorite due to ${e.message}", Toast.LENGTH_LONG).show()
             }
     }
