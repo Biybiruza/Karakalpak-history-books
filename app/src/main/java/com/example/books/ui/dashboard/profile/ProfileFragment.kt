@@ -2,7 +2,6 @@ package com.example.books.ui.dashboard.profile
 
 import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -12,7 +11,7 @@ import com.example.books.R
 import com.example.books.data.ModelPdf
 import com.example.books.databinding.FragmentProfileBinding
 import com.example.books.ui.dashboard.admin.MyApplication
-import com.example.books.ui.dashboard.admin.pdf_list.PdfListAdminFragment
+import com.example.books.ui.dashboard.profile.edit.AdapterPdfFavorite
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
