@@ -36,9 +36,7 @@
             app:destination="@id/loginFragment"/>
         <action
             android:id="@+id/action_welcomeFragment_to_dashboardUserFragment"
-            app:destination="@id/dashboardUserFragment"
-            app:popUpTo="@+id/welcomeFragment"
-            app:popUpToInclusive="true"/>
+            app:destination="@id/dashboardUserFragment"/>
     </fragment>
     <fragment
         android:id="@+id/dashboardAdminFragment"
@@ -101,6 +99,9 @@
             app:destination="@id/dashboardAdminFragment"
             app:popUpTo="@+id/loginFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -179,4 +180,9 @@
         android:name="com.example.books.ui.dashboard.profile.edit.ProfileEditFragment"
         android:label="ProfileEditFragment"
         tools:layout="@layout/fragment_profile_edit"/>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.books.ui.forgot_password.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password"/>
 </navigation>
