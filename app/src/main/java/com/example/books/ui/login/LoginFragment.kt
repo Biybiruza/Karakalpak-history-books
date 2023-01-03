@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.books.MainActivity
 import com.example.books.R
 import com.example.books.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -45,7 +46,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         //back button click
         binding.btnBack.setOnClickListener {
-            requireActivity().onBackPressed()
+            (activity as MainActivity?)?.onBackPressed()
         }
 
         // handle click, begin login
@@ -58,6 +59,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             *    if User - Move to user dashboard
             *    if Admin - Move to admin dashboard*/
             validateData()
+        }
+
+        //handle click, open forgot activity
+        binding.forgotPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
         }
     }
 
