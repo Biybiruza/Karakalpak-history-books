@@ -176,7 +176,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileEditFragment"
-        android:name="com.example.books.ui.dashboard.profile.ProfileEditFragment"
+        android:name="com.example.books.ui.dashboard.profile.edit.ProfileEditFragment"
         android:label="ProfileEditFragment"
         tools:layout="@layout/fragment_profile_edit"/>
 </navigation>

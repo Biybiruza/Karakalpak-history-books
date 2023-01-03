@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:contentPadding="8dp"
+    android:layout_marginBottom="2dp"
+    android:background="@color/white"
+    app:cardCornerRadius="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--ImageView: Profile image of user who commented-->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileIv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_person_gray"
+            app:shapeAppearanceOverlay="@style/styleCircleImages"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/gray"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/nameTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--TextView: name of user who commented-->
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Person name"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:padding="2dp"
+            app:layout_constraintStart_toEndOf="@id/profileIv"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/dateTv"/>
+
+        <!--TextView: Date of comment added-->
+        <TextView
+            android:id="@+id/dateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Person name"
+            android:textColor="@color/gray02"
+            android:textSize="12sp"
+            android:padding="4dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@id/nameTv"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!--TextView: Date of comment added-->
+        <TextView
+            android:id="@+id/commentTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="The comment of the user"
+            android:textColor="@color/gray02"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:padding="2dp"
+            app:layout_constraintStart_toEndOf="@id/profileIv"
+            app:layout_constraintTop_toBottomOf="@id/nameTv"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

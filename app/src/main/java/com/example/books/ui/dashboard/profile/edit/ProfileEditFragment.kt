@@ -1,7 +1,6 @@
-package com.example.books.ui.dashboard.profile
+package com.example.books.ui.dashboard.profile.edit
 
 import android.app.Activity
-import android.app.Activity.RESULT_OK
 import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Intent
@@ -19,7 +18,6 @@ import com.bumptech.glide.Glide
 import com.example.books.MainActivity
 import com.example.books.R
 import com.example.books.databinding.FragmentProfileEditBinding
-import com.example.books.ui.dashboard.admin.MyApplication
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot

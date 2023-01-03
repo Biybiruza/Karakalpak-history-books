@@ -1,4 +1,4 @@
-package com.example.books.ui.dashboard.profile
+package com.example.books.ui.dashboard.profile.edit
 
 import android.view.LayoutInflater
 import android.view.View
