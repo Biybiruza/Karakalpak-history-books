@@ -21,16 +21,16 @@ import com.google.firebase.storage.FirebaseStorage
 import java.util.*
 import kotlin.collections.HashMap
 
-class MyApplication: Application() {
+class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
     }
 
-    companion object{
+    companion object {
         //create a static method to convert timestamp to proper date format, so we can use it everywhere in project, no need to rewirte again
-        fun formatTimeStamp(timeStamp: Long) : String {
+        fun formatTimeStamp(timeStamp: Long): String {
             val cal = Calendar.getInstance(Locale.ENGLISH)
             cal.timeInMillis = timeStamp
             //format dd/MM/yyyy
@@ -38,7 +38,7 @@ class MyApplication: Application() {
         }
 
         //function to get pdf size
-        fun loadPdfSize(pdfUrl: String, pdfTitle: String, sizeTv: TextView){
+        fun loadPdfSize(pdfUrl: String, pdfTitle: String, sizeTv: TextView) {
             val TAG = "PDF_SIZE_TAG"
 
             //using url we can get file and its medata from firebase storage
@@ -50,11 +50,11 @@ class MyApplication: Application() {
                     Log.d(TAG, "loadPdfSize: Size bytes $bytes")
 
                     //convert bytes to KB/MB
-                    val kb = bytes/1024
-                    val mb = kb/1024
-                    if (mb >= 1){
+                    val kb = bytes / 1024
+                    val mb = kb / 1024
+                    if (mb >= 1) {
                         sizeTv.text = "${String.format("%.2f", mb)} MB"
-                    }else if (kb >= 1){
+                    } else if (kb >= 1) {
                         sizeTv.text = "${String.format("%.2f", kb)} KB"
                     } else {
                         sizeTv.text = "${String.format("%.2f", bytes)} bytes"
@@ -78,7 +78,8 @@ class MyApplication: Application() {
             pdfTitle: String,
             pdfViewer: PDFView,
             progressBar: ProgressBar,
-            pageTv: TextView?){
+            pageTv: TextView?
+        ) {
             //using url we can get file and its medata from firebase storage
             val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
 
@@ -117,7 +118,7 @@ class MyApplication: Application() {
                 }
         }
 
-        fun loadCategory(categoryId: String, categoryTv: TextView){
+        fun loadCategory(categoryId: String, categoryTv: TextView) {
             //load category using category id from firebase
             val ref = FirebaseDatabase.getInstance().getReference("Categories")
             ref.child(categoryId)
@@ -136,7 +137,7 @@ class MyApplication: Application() {
                 })
         }
 
-        fun deleteBook(context: Context, bookId: String, bookUrl: String, bookTitle: String){
+        fun deleteBook(context: Context, bookId: String, bookUrl: String, bookTitle: String) {
             //param details
             //1) context, used when require e.g. for progress dialog, toast
             //2) bookId, to delete book from db
@@ -165,30 +166,39 @@ class MyApplication: Application() {
                         .addOnSuccessListener {
                             progressDialog.dismiss()
                             Log.d(TAG, "deleteBook: Deleted from db too...")
-                            Toast.makeText(context, "Successfully deleted...", Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, "Successfully deleted...", Toast.LENGTH_LONG)
+                                .show()
                         }
                         .addOnFailureListener { e ->
                             progressDialog.dismiss()
                             Log.d(TAG, "deleteBook: Deleted to from db due to ${e.message}")
-                            Toast.makeText(context, "Failed to delete due to ${e.message}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                context,
+                                "Failed to delete due to ${e.message}",
+                                Toast.LENGTH_LONG
+                            ).show()
                         }
                 }
                 .addOnFailureListener { e ->
                     progressDialog.dismiss()
                     Log.d(TAG, "deleteBook: Deleted to from storage due to ${e.message}")
-                    Toast.makeText(context, "Failed to delete due to ${e.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        context,
+                        "Failed to delete due to ${e.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
         }
 
-        fun incrementBookViewCount(bookId: String){
+        fun incrementBookViewCount(bookId: String) {
             //1) get current book views count
             val ref = FirebaseDatabase.getInstance().getReference("Books")
             ref.child(bookId)
-                .addListenerForSingleValueEvent(object : ValueEventListener{
+                .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         var viewsCount = snapshot.child("viewsCount").value.toString()
 
-                        if (viewsCount == "0" || viewsCount == "null"){
+                        if (viewsCount == "0" || viewsCount == "null") {
                             viewsCount = "0"
                         }
                         //2) Increment views count
@@ -211,7 +221,7 @@ class MyApplication: Application() {
                 })
         }
 
-        fun removeFromFavorite(context: Context, bookId: String){
+        fun removeFromFavorite(context: Context, bookId: String) {
             val TAG = "REMOVE_FAV_TAG"
             Log.d(TAG, "removeFromFavorite: removing from favorite")
 
@@ -224,8 +234,15 @@ class MyApplication: Application() {
                     Log.d(TAG, "removeFromFavorite: removed from favorite")
                 }
                 .addOnFailureListener { e ->
-                    Log.d(TAG, "removeFromFavorite: Failed to remove from favorite due to ${e.message}")
-                    Toast.makeText(context, "Failed to add to favorite due to ${e.message}", Toast.LENGTH_LONG).show()
+                    Log.d(
+                        TAG,
+                        "removeFromFavorite: Failed to remove from favorite due to ${e.message}"
+                    )
+                    Toast.makeText(
+                        context,
+                        "Failed to add to favorite due to ${e.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
         }
     }

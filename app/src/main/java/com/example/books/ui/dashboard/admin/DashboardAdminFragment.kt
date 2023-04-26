@@ -46,7 +46,8 @@ class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
         //search
         binding.searchEt.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Toast.makeText(requireContext(), "Not yet implemented",Toast.LENGTH_LONG).show()
+                TODO("Not yet implemented")
+//                Toast.makeText(requireContext(), "Not yet implemented",Toast.LENGTH_LONG).show()
             }
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -119,7 +120,6 @@ class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
         })
     }
 

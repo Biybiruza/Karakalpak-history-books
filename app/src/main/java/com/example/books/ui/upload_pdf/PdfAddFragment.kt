@@ -16,6 +16,7 @@ import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.example.books.MainActivity
 import com.example.books.R
 import com.example.books.data.ModelCategory
 import com.example.books.databinding.FragmentPdfAddBinding
@@ -60,7 +61,7 @@ class PdfAddFragment : Fragment(R.layout.fragment_pdf_add){
 
         //handle click. goBack
         binding.btnBack.setOnClickListener {
-            requireActivity().onBackPressed()
+            (activity as MainActivity?)?.onBackPressed()
         }
 
         //handle click, show category pick dialog

@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.books.MainActivity
 import com.example.books.R
 import com.example.books.databinding.FragmentCategoryAddBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -37,7 +38,7 @@ class CategoryAddFragment : Fragment(R.layout.fragment_category_add) {
 
         //handle click, go back
         binding.btnBack.setOnClickListener {
-            requireActivity().onBackPressed()
+            (activity as MainActivity?)?.onBackPressed()
         }
 
         //handle click, begin upload category
@@ -84,6 +85,7 @@ class CategoryAddFragment : Fragment(R.layout.fragment_category_add) {
                 //add successfully
                 progressDialog.dismiss()
                 Toast.makeText(requireContext(),"Add successfully...", Toast.LENGTH_LONG).show()
+                binding.categoryEt.text = null
             }
             .addOnFailureListener { e ->
                 //failed to add

@@ -53,7 +53,7 @@ class PdfListAdminFragment: Fragment(R.layout.fragment_pdf_list_admin){
         //search
         binding.etSearch.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
+                TODO("Not yet implemented")
             }
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -72,7 +72,7 @@ class PdfListAdminFragment: Fragment(R.layout.fragment_pdf_list_admin){
         })
 
         //back pressed
-        binding.toolbar.setNavigationOnClickListener {
+        binding.btnBack.setOnClickListener {
             (activity as MainActivity?)?.onBackPressed()
         }
 
