@@ -14,7 +14,7 @@
         android:layout_margin="10dp"
         android:background="@color/white"
         android:drawableStart="@drawable/ic_search_gray"
-        android:hint="Search"
+        android:hint="Ízlew"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray"

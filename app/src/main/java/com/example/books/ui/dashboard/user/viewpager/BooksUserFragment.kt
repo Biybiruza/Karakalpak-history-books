@@ -59,13 +59,13 @@ class BooksUserFragment() : Fragment(R.layout.fragment_books_user) {
         }
 
         Log.d(TAG,"onViewCreated: category $category")
-        if (category == "All"){
+        if (category == "Bárshesi"){
             //load all book
             loadAllBook()
-        } else if (category == "Most Viewed"){
+        } else if (category == "Kóp kórilgen"){
             //load most viewed books
             loadMostDownloadedBooks("viewsCount")
-        } else if (category == "Most Downloaded"){
+        } else if (category == "Kóp júklep alınǵan"){
             //load most downloaded books
             loadMostDownloadedBooks("downloadsCount")
         } else {
@@ -130,7 +130,7 @@ class BooksUserFragment() : Fragment(R.layout.fragment_books_user) {
         //init list
         pdfArrayList = ArrayList()
         val ref = FirebaseDatabase.getInstance().getReference("Books")
-        ref.orderByChild(orderby).limitToLast(10) //load 10 most viewed or most downloaded books. orderBy=""
+        ref.orderByChild(orderby).limitToLast(5) //load 10 most viewed or most downloaded books. orderBy=""
             .addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 //clear list before starting adding data into it
