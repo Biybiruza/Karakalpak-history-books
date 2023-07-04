@@ -74,16 +74,17 @@ class ProfileFragment() : Fragment(R.layout.fragment_profile) {
                     binding.emailTv.text = snapshot.child("email").value.toString()
                     binding.userTv.text = snapshot.child("email").value.toString()
                     binding.memberDateTv.text = formattedDate
-                    binding.accountTypeTv.text = snapshot.child("userType").value.toString()
-                    //set image
-                    try {
-                        Glide.with(requireContext())
-                            .load(profileImage)
-                            .placeholder(R.drawable.ic_person_gray)
-                            .into(binding.profileImageV)
-                    } catch (e: Exception){
+                    binding.accountTypeTv.text = snapshot.child("userType").value.toString();
 
-                    }
+                    //set image
+//                    try {
+                    Glide.with(requireContext())
+                        .load(profileImage)
+                        .placeholder(R.drawable.ic_person_gray)
+                        .into(binding.profileImageV)
+//                    } catch (e: Exception){
+//
+//                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {

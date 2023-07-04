@@ -9,6 +9,6 @@ data class ModelPdf(
     var url: String = "",
     var timestamp: Long = 0,
     var viewsCount: Long = 0,
-    var downloadCount: Long = 0,
+    var downloadCount: Int = 0,
     var isFavorite: Boolean = false
 )

@@ -151,14 +151,14 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
                     //set data
                     binding.username.setText(name)
                     //set image
-                    try {
+//                    try {
                         Glide.with(requireContext())
                             .load(profileImage)
                             .placeholder(R.drawable.ic_person_gray)
                             .into(binding.profileImageV)
-                    } catch (e: Exception){
-                        Toast.makeText(requireContext(), "catch: error", Toast.LENGTH_LONG).show()
-                    }
+//                    } catch (e: Exception){
+//                        Toast.makeText(requireContext(), "catch: error", Toast.LENGTH_LONG).show()
+//                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {

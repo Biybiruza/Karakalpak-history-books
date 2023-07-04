@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -51,29 +52,32 @@ class PdfListAdminFragment: Fragment(R.layout.fragment_pdf_list_admin){
         loadPdfList()
 
         //search
-        binding.etSearch.addTextChangedListener(object : TextWatcher{
+        binding.etSearch.addTextChangedListener(
+            object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
             }
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                //filter data
+                Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
+                /*//filter data
                 try {
                     adapterPdfAdmin.filter.filter(s)
                 }catch (e: Exception){
                     Log.d(TAG,"onTextChanged: ${e.message}")
-                }
+                }*/
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
             }
 
         })
 
         //back pressed
         binding.btnBack.setOnClickListener {
-            (activity as MainActivity?)?.onBackPressed()
+//            (activity as MainActivity?)?.onBackPressed()
+            requireActivity().onBackPressed()
         }
 
         adapterPdfAdmin.setOnClickMoteBtnListener {
@@ -91,10 +95,10 @@ class PdfListAdminFragment: Fragment(R.layout.fragment_pdf_list_admin){
 
     private fun moreOptionsDialog(model: ModelPdf) {
         //options to show in dialog
-        val options = arrayOf("Edit","Delete")
+        val options = arrayOf("Redaktorlaw","óshiriw")
         //alert dialog
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Choose Option")
+        builder.setTitle("Birin tańlań!")
             .setItems(options){ _, position->
                 //item click
                 if (position == 0){

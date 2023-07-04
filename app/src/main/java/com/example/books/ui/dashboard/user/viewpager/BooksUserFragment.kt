@@ -5,6 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -76,19 +77,20 @@ class BooksUserFragment() : Fragment(R.layout.fragment_books_user) {
         //search
         binding.searchEt.addTextChangedListener { object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
             }
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                try {
+                Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
+            /*try {
                     adapterPdfUser.filter.filter(s)
                 } catch (e: Exception){
                     Log.d(TAG,"onTextChanged: SEARCH EXCEPTION ${e.message}")
-                }
+                }*/
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
             }
 
         } }
