@@ -134,6 +134,16 @@ class PdfDetailsFragment : Fragment(R.layout.fragment_pdf_details) {
                 addCommentDialog()
             }
         }
+
+        binding.descriptionTv.setOnClickListener {
+            binding.apply {
+                if (descriptionTv.maxLines == 4){
+                    descriptionTv.maxLines = 80
+                } else {
+                    descriptionTv.maxLines = 4
+                }
+            }
+        }
     }
 
     private fun showComments() {
@@ -287,7 +297,7 @@ class PdfDetailsFragment : Fragment(R.layout.fragment_pdf_details) {
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     //get downloads count
-                    var downloadsCount = snapshot.child("downloadsCount").value.toString()
+                    var downloadsCount = snapshot.child("downloadCount").value.toString()
                     Log.d(TAG, "incrementDownloadCount: $downloadsCount")
                     if (downloadsCount == "" || downloadsCount == "null"){
                         downloadsCount = "0"
@@ -298,7 +308,7 @@ class PdfDetailsFragment : Fragment(R.layout.fragment_pdf_details) {
 
                     //setup data to update to db
                     val hashMap = HashMap<String, Any>()
-                    hashMap["downloadsCount"] = newDownloadsCount
+                    hashMap["downloadCount"] = newDownloadsCount
 
                     //set to db
                     val dbRef = FirebaseDatabase.getInstance().getReference("Books")

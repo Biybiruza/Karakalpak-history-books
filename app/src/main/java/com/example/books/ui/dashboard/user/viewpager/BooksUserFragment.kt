@@ -68,29 +68,30 @@ class BooksUserFragment() : Fragment(R.layout.fragment_books_user) {
             loadMostDownloadedBooks("viewsCount")
         } else if (category == "Kóp júklep alınǵan"){
             //load most downloaded books
-            loadMostDownloadedBooks("downloadsCount")
+            loadMostDownloadedBooks("downloadCount")
         } else {
             //load selected category books
             loadCategorizedBooks()
         }
+        loadAllBook()
 
         //search
+        /*binding.searchEt.addTextChangedListener {
+
+        }*/
         binding.searchEt.addTextChangedListener { object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
+                Log.d("TAG", "addTextChangedListener: ")
             }
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
-            /*try {
-                    adapterPdfUser.filter.filter(s)
-                } catch (e: Exception){
-                    Log.d(TAG,"onTextChanged: SEARCH EXCEPTION ${e.message}")
-                }*/
+                adapterPdfUser.filter.filter(s)
             }
 
             override fun afterTextChanged(p0: Editable?) {
                 Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
+                Log.d("TAG", "afterTextChanged: $p0")
             }
 
         } }
