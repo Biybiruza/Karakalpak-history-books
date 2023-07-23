@@ -289,6 +289,8 @@
         android:id="@+id/readBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
         android:text="Oqıw"
         android:textAllCaps="false"
         android:layout_marginStart="10dp"
@@ -296,19 +298,23 @@
         android:drawableTop="@drawable/ic_read_book_white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/downloadBtn"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:focusable="true" />
 
     <!--download book-->
     <Button
         android:id="@+id/downloadBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
         android:text="Júklep alıw"
         android:textAllCaps="false"
         android:layout_marginEnd="10dp"
         android:drawableTop="@drawable/ic_download_white"
         app:layout_constraintStart_toEndOf="@id/readBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
