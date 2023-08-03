@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_dashboardAdminFragment_to_pdfAddFragment"
             app:destination="@id/pdfAddFragment" />
+        <action
+            android:id="@+id/action_dashboardAdminFragment_to_pdfListAdminFragment"
+            app:destination="@id/pdfListAdminFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboardUserFragment"
@@ -113,4 +116,9 @@
         android:name="com.example.books.ui.upload_pdf.PdfAddFragment"
         android:label="fragment_pdf_add"
         tools:layout="@layout/fragment_pdf_add" />
+    <fragment
+        android:id="@+id/pdfListAdminFragment"
+        android:name="com.example.books.ui.dashboard.admin.pdf_list.PdfListAdminFragment"
+        android:label="PdfListAdminFragment"
+        tools:layout="@layout/fragment_pdf_list_admin"/>
 </navigation>

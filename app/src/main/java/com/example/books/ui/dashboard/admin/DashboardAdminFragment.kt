@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.books.R
@@ -18,6 +19,7 @@ import com.google.firebase.database.ValueEventListener
 import java.lang.Exception
 import kotlin.collections.ArrayList
 
+@Suppress("UNREACHABLE_CODE")
 class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
     //view binding
     private lateinit var binding: FragmentDashboardAdminBinding
@@ -43,6 +45,7 @@ class DashboardAdminFragment : Fragment(R.layout.fragment_dashboard_admin) {
         binding.searchEt.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "beforeTextChanged", Toast.LENGTH_LONG).show()
             }
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {

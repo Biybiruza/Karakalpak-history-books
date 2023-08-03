@@ -2,6 +2,7 @@ package com.example.books.ui.category
 
 import android.app.AlertDialog
 import android.content.Context
+import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.books.R
 import com.example.books.data.ModelCategory
@@ -21,17 +24,14 @@ class AdapterCategory(context: Context) : RecyclerView.Adapter<CategoryViewHolde
 
     private var filterList: ArrayList<ModelCategory> = arrayListOf()
     private var filter: FilterCategory? = null
+    private lateinit var navController: NavController
 
     val context = context
-    /*constructor(context: Context, categoryList: ArrayList<ModelCategory>) : super(){
-        this.context = context
-        this.categoryList = categoryList
-        this.filterList = categoryList
-    }*/
 
     inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var binding = RowCategoryBinding.bind(itemView)
         fun populateModel(model: ModelCategory) {
+            navController = NavController(context)
 
             //set data
             binding.categoryTv.text = model.category
@@ -57,6 +57,12 @@ class AdapterCategory(context: Context) : RecyclerView.Adapter<CategoryViewHolde
                         a.dismiss()
                     }
                     .show()
+            }
+
+            //handle click, start pdf listen admin activity, also pas pdf id, title
+            itemView.setOnClickListener {
+                val bundle = bundleOf("categoryId" to id, "category" to category)
+                navController.navigate(R.id.action_dashboardAdminFragment_to_pdfListAdminFragment, bundle)
             }
         }
     }
