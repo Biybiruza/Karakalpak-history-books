@@ -50,6 +50,8 @@ class PdfViewFragment : Fragment(R.layout.fragment_pdf_view) {
                     val pdfUrl = snapshot.child("url").value.toString()
                     Log.d(TAG, "loadBookDetails: PDF_URL $pdfUrl")
 
+                    binding.tvTitle.text = snapshot.child("title").value.toString()
+
                     //Step(2) load pdf using url from firebase storage
                     loadBookFromUrl(pdfUrl)
                 }

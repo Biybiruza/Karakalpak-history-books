@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,8 @@ class AdapterPdfAdmin(context: Context) : RecyclerView.Adapter<AdapterPdfAdmin.P
 
             //load pdf Size
             MyApplication.loadPdfSize(model.url, model.title, binding.tvPdfSize)
+            val animation = AnimationUtils.loadAnimation(itemView.context, R.anim.mix_animation)
+            itemView.startAnimation(animation)
 
             //item click, show dialog with options 10) Edit book 2)Delete book
             binding.ibMoreBtn.setOnClickListener {

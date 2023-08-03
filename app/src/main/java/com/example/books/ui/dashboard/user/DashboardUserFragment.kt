@@ -74,9 +74,9 @@ class DashboardUserFragment : Fragment(R.layout.fragment_dashboard_user) {
 
                 /*Load some static categories e.g All, Most Viewed, Most Downloaded*/
                 //add data to models
-                val modelAll = ModelCategory("01", "All", 1, "")
-                val modelMostViewed = ModelCategory("01", "Most Viewed", 1, "")
-                val modelMostDownloaded = ModelCategory("01", "Most Downloaded", 1, "")
+                val modelAll = ModelCategory("01", "Bárshesi", 1, "")
+                val modelMostViewed = ModelCategory("01", "Kóp kórilgen", 1, "")
+                val modelMostDownloaded = ModelCategory("01", "Kóp júklep alınǵan", 1, "")
 
                 //add to list
                 categoryList.add(modelAll)

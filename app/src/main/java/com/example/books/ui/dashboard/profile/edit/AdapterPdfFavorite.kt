@@ -1,5 +1,6 @@
 package com.example.books.ui.dashboard.profile.edit
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,20 +54,38 @@ class AdapterPdfFavorite : RecyclerView.Adapter<AdapterPdfFavorite.PdfFavoriteVi
                     modelPdf.title = title
                     modelPdf.description = description
                     modelPdf.categoryId = categoryId
-                    modelPdf.timestamp = timestamp.toLong()
+                    try {
+                        modelPdf.timestamp = timestamp.toLong()
+                    } catch (e: Exception){
+                        Log.d("TAG", "timestamp: $timestamp")
+                    }
                     modelPdf.uid = uid
                     modelPdf.url = url
-                    modelPdf.downloadCount = downloadsCount.toLong()
-                    modelPdf.viewsCount = viewsCount.toLong()
+                    try {
+                        modelPdf.viewsCount = viewsCount.toLong()
+                    } catch (e: Exception){
+                        Log.d("TAG", "viewsCount: $viewsCount")
+                    }
 
                     //set data
                     binding.tvTitle.text = title
                     binding.tvDescription.text = description
-                    binding.tvDate.text = MyApplication.formatTimeStamp(timestamp.toLong())
-
-                    MyApplication.loadPdfSize(url, title, binding.tvPdfSize)
+                    try {
+                        binding.tvDate.text = MyApplication.formatTimeStamp(timestamp.toLong())
+                    } catch (e: Exception){
+                        Log.d("TAG", "Date: $e")
+                    }
+                    try {
+                        MyApplication.loadPdfSize(url, title, binding.tvPdfSize)
+                    } catch (e: Exception){
+                        Log.d("TAG", "Exception: $e")
+                    }
                     MyApplication.loadCategory(categoryId, binding.tvCategory)
-                    MyApplication.loadPdfFromSinglePage(url, title, binding.pdfViewer, binding.progressBar, null)
+                    try {
+                        MyApplication.loadPdfFromSinglePage(url, title, binding.pdfViewer, binding.progressBar, null)
+                    } catch (e: Exception){
+                        Log.d("TAG", "Exception: $e")
+                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {

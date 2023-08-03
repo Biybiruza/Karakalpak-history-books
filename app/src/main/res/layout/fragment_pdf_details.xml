@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Book details"
+            android:text="Kitap maǵliwmatları"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -76,21 +76,21 @@
             <RelativeLayout
                 android:id="@+id/rl_pdf"
                 android:layout_width="110dp"
-                android:layout_height="150dp"
+                android:layout_height="160dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.github.barteksc.pdfviewer.PDFView
                     android:id="@+id/pdfView"
                     android:layout_width="110dp"
-                    android:layout_height="150dp"
+                    android:layout_height="160dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <ProgressBar
                     android:id="@+id/progressBar"
                     android:layout_width="110dp"
-                    android:layout_height="150dp"
+                    android:layout_height="160dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
@@ -223,9 +223,11 @@
                 android:id="@+id/descriptionTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:text="The description of the book."
                 android:textColor="@color/black"
+                android:maxLines="4"
+                android:ellipsize="end"
                 app:layout_constraintTop_toBottomOf="@id/tableLayout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -246,7 +248,7 @@
                 android:id="@+id/textView1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Comments"
+                android:text="Payalanıwshilar pikiri"
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -287,21 +289,32 @@
         android:id="@+id/readBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Read"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:text="Oqıw"
+        android:textAllCaps="false"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
         android:drawableTop="@drawable/ic_read_book_white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/downloadBtn"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:focusable="true" />
 
     <!--download book-->
     <Button
         android:id="@+id/downloadBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Download"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:text="Júklep alıw"
+        android:textAllCaps="false"
+        android:layout_marginEnd="10dp"
         android:drawableTop="@drawable/ic_download_white"
         app:layout_constraintStart_toEndOf="@id/readBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

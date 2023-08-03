@@ -53,7 +53,8 @@ class PdfEditFragment() : Fragment(R.layout.fragment_pdf_edit) {
 
         //handle click, go back
         binding.toolbar.setNavigationOnClickListener {
-            (activity as MainActivity?)?.onBackPressed()
+//            (activity as MainActivity?)?.onBackPressed()
+            requireActivity().onBackPressed()
         }
 
         //handle click, pick category

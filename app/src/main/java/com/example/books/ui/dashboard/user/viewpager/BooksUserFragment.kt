@@ -5,6 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -59,36 +60,38 @@ class BooksUserFragment() : Fragment(R.layout.fragment_books_user) {
         }
 
         Log.d(TAG,"onViewCreated: category $category")
-        if (category == "All"){
+        if (category == "Bárshesi"){
             //load all book
             loadAllBook()
-        } else if (category == "Most Viewed"){
+        } else if (category == "Kóp kórilgen"){
             //load most viewed books
             loadMostDownloadedBooks("viewsCount")
-        } else if (category == "Most Downloaded"){
+        } else if (category == "Kóp júklep alınǵan"){
             //load most downloaded books
-            loadMostDownloadedBooks("downloadsCount")
+            loadMostDownloadedBooks("downloadCount")
         } else {
             //load selected category books
             loadCategorizedBooks()
         }
+        loadAllBook()
 
         //search
+        /*binding.searchEt.addTextChangedListener {
+
+        }*/
         binding.searchEt.addTextChangedListener { object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
+                Log.d("TAG", "addTextChangedListener: ")
             }
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                try {
-                    adapterPdfUser.filter.filter(s)
-                } catch (e: Exception){
-                    Log.d(TAG,"onTextChanged: SEARCH EXCEPTION ${e.message}")
-                }
+                adapterPdfUser.filter.filter(s)
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "Islenmekde!", Toast.LENGTH_LONG).show()
+                Log.d("TAG", "afterTextChanged: $p0")
             }
 
         } }
@@ -130,7 +133,7 @@ class BooksUserFragment() : Fragment(R.layout.fragment_books_user) {
         //init list
         pdfArrayList = ArrayList()
         val ref = FirebaseDatabase.getInstance().getReference("Books")
-        ref.orderByChild(orderby).limitToLast(10) //load 10 most viewed or most downloaded books. orderBy=""
+        ref.orderByChild(orderby).limitToLast(5) //load 10 most viewed or most downloaded books. orderBy=""
             .addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 //clear list before starting adding data into it

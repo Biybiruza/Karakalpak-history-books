@@ -3,6 +3,7 @@ package com.example.books.ui.dashboard.user
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +30,9 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.PdfUserViewHolder>(),
             MyApplication.loadCategory(model.categoryId, binding.tvCategory)
 
             MyApplication.loadPdfSize(model.url, model.title, binding.tvPdfSize)
+
+            val animation = AnimationUtils.loadAnimation(itemView.context, R.anim.mix_animation)
+            itemView.startAnimation(animation)
 
             itemView.setOnClickListener {
                 onItemClick.invoke(model.id)
